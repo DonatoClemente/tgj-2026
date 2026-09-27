@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://bm8euqh6w7drq"]
+
+[ext_resource type="Script" uid="uid://h0ng2jbbllhx" path="res://scripts/level_select.gd" id="1_vomi7"]
+[ext_resource type="Texture2D" uid="uid://bgjlf0b4pp8hs" path="res://icon.svg" id="2_wevku"]
+
+[node name="LevelSelect" type="CanvasLayer" unique_id=438430322]
+script = ExtResource("1_vomi7")
+main_menu = "uid://camg5ltjsost2"
+levels = Array[String](["uid://yqcvh7fvy1c6", "uid://camg5ltjsost2", "uid://camg5ltjsost2"])
+
+[node name="Control" type="Control" parent="." unique_id=2108755034]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1360435425]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.60912865, 0.3680868, 3.85046e-07, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/ColorRect" unique_id=463561685]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Control/ColorRect/CenterContainer" unique_id=659301757]
+layout_mode = 2
+theme_override_constants/h_separation = 221
+columns = 5
+
+[node name="LevelOne" type="VBoxContainer" parent="Control/ColorRect/CenterContainer/GridContainer" unique_id=1639787946]
+layout_mode = 2
+
+[node name="LevelOneButton" type="TextureButton" parent="Control/ColorRect/CenterContainer/GridContainer/LevelOne" unique_id=1070047248]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("2_wevku")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/ColorRect/CenterContainer/GridContainer/LevelOne" unique_id=1766706619]
+layout_mode = 2
+theme_override_font_sizes/font_size = 31
+text = "Level 1"
+horizontal_alignment = 1
+
+[node name="LevelTwo" type="VBoxContainer" parent="Control/ColorRect/CenterContainer/GridContainer" unique_id=115443869]
+layout_mode = 2
+
+[node name="LevelTwoButton" type="TextureButton" parent="Control/ColorRect/CenterContainer/GridContainer/LevelTwo" unique_id=1304376622]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("2_wevku")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/ColorRect/CenterContainer/GridContainer/LevelTwo" unique_id=912310233]
+layout_mode = 2
+theme_override_font_sizes/font_size = 31
+text = "Level 2"
+horizontal_alignment = 1
+
+[node name="LevelThree" type="VBoxContainer" parent="Control/ColorRect/CenterContainer/GridContainer" unique_id=1023227670]
+layout_mode = 2
+
+[node name="LevelThreeButton" type="TextureButton" parent="Control/ColorRect/CenterContainer/GridContainer/LevelThree" unique_id=511414376]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("2_wevku")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/ColorRect/CenterContainer/GridContainer/LevelThree" unique_id=1415402400]
+layout_mode = 2
+theme_override_font_sizes/font_size = 31
+text = "Level 3"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="Control/ColorRect" unique_id=1091735840]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 28.0
+offset_right = 124.0
+offset_bottom = 91.0
+theme_override_font_sizes/font_size = 32
+text = "Back to Menu"

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b4q4t4d1tf04v"]
+
+[ext_resource type="Texture2D" uid="uid://ca4dpjvjxtotv" path="res://assets/assets_spikes.png" id="1_s0g1x"]
+[ext_resource type="PackedScene" uid="uid://deq4whrtasnbn" path="res://death_area.tscn" id="2_nrdsm"]
+
+[node name="Spikes" type="Node2D" unique_id=850862282]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=563513702]
+texture = ExtResource("1_s0g1x")
+
+[node name="DeathArea" parent="." unique_id=2055073567 instance=ExtResource("2_nrdsm")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathArea" unique_id=1435102289]
+polygon = PackedVector2Array(-31, -42, -37, -3, -39, 36, -45, 50, 44, 50, 39, 19, 35, -16, 30, -42)

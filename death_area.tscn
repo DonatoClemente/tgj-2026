@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://deq4whrtasnbn"]
+
+[ext_resource type="Script" uid="uid://m4ic0t6hfhty" path="res://scripts/death_area.gd" id="1_htyoj"]
+
+[node name="DeathArea" type="Area2D" unique_id=2055073567]
+collision_mask = 2
+script = ExtResource("1_htyoj")

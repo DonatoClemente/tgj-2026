@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://dpxb344jmstwp"]
+
+[ext_resource type="Script" uid="uid://r77sklk632rh" path="res://scripts/settings.gd" id="1_x2hje"]
+
+[node name="Settings" type="CanvasLayer" unique_id=1445205057]
+script = ExtResource("1_x2hje")
+
+[node name="Control" type="Control" parent="." unique_id=99609065]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1375105647]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7529412)
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/ColorRect" unique_id=1040833422]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control/ColorRect/CenterContainer" unique_id=127245713]
+custom_minimum_size = Vector2(500, 600)
+layout_mode = 2
+color = Color(0.49411765, 0.06666667, 0.3019608, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ColorRect/CenterContainer/ColorRect" unique_id=1503854761]
+custom_maximum_size = Vector2(450, 550)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/ColorRect/CenterContainer/ColorRect/VBoxContainer" unique_id=1841417926]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="Control/ColorRect/CenterContainer/ColorRect/VBoxContainer" unique_id=900367795]
+custom_minimum_size = Vector2(0, 27.92)
+layout_mode = 2
+
+[node name="MusicVolume" type="VBoxContainer" parent="Control/ColorRect/CenterContainer/ColorRect/VBoxContainer" unique_id=121143198]
+custom_maximum_size = Vector2(450, 550)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 20)
+offset_transform_visual_only = false
+
+[node name="Label" type="Label" parent="Control/ColorRect/CenterContainer/ColorRect/VBoxContainer/MusicVolume" unique_id=1428300731]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Music Volume"
+horizontal_alignment = 2
+
+[node name="MusicValue" type="Label" parent="Control/ColorRect/CenterContainer/ColorRect/VBoxContainer/MusicVolume" unique_id=78742706]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "100%"
+
+[node name="MusicSlider" type="HSlider" parent="Control/ColorRect/CenterContainer/ColorRect/VBoxContainer/MusicVolume" unique_id=678467816]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SFXVolume" type="VBoxContainer" parent="Control/ColorRect/CenterContainer/ColorRect/VBoxContainer" unique_id=1289795265]
+custom_maximum_size = Vector2(450, 550)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 20)
+offset_transform_visual_only = false
+
+[node name="Label" type="Label" parent="Control/ColorRect/CenterContainer/ColorRect/VBoxContainer/SFXVolume" unique_id=1624144629]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Sound Effects Volume"
+horizontal_alignment = 2
+
+[node name="SFXValue" type="Label" parent="Control/ColorRect/CenterContainer/ColorRect/VBoxContainer/SFXVolume" unique_id=744068781]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "100%"
+
+[node name="SFXSlider" type="HSlider" parent="Control/ColorRect/CenterContainer/ColorRect/VBoxContainer/SFXVolume" unique_id=987650293]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Button" type="Button" parent="Control/ColorRect/CenterContainer/ColorRect/VBoxContainer" unique_id=172563241]
+unique_name_in_owner = true
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 207.395)
+offset_transform_visual_only = false
+theme_override_font_sizes/font_size = 34
+text = "Close"

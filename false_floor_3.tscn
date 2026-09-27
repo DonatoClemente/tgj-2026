@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c8j6j7eimf2mf"]
+
+[ext_resource type="Script" uid="uid://nw83prj6vc70" path="res://scripts/false_floor.gd" id="1_1rdhv"]
+[ext_resource type="Texture2D" uid="uid://cvkyygy4eh3n" path="res://assets/assets_fake_floor_3.png" id="2_1rdhv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1y8i"]
+size = Vector2(190, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8j42"]
+size = Vector2(190, 80)
+
+[node name="FalseFloor3" type="StaticBody2D" unique_id=40022131 groups=["false_floor"]]
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("1_1rdhv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2060865348]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_1rdhv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=775583403]
+shape = SubResource("RectangleShape2D_y1y8i")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1394590396]
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1854103089]
+shape = SubResource("RectangleShape2D_i8j42")

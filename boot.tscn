@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://dxxdocyfir2kh"]
+
+[ext_resource type="Script" uid="uid://ce2q6ap72lfh7" path="res://scripts/boot.gd" id="1_t5imi"]
+[ext_resource type="Texture2D" uid="uid://c0oce1sjknlwd" path="res://assets/assets_boot.png" id="2_m6jb1"]
+[ext_resource type="Script" uid="uid://m4ic0t6hfhty" path="res://scripts/death_area.gd" id="3_t5imi"]
+[ext_resource type="Texture2D" uid="uid://0mu42068jv0b" path="res://assets/assets_fake_floor_1.png" id="3_xf3if"]
+[ext_resource type="Texture2D" uid="uid://xa3mron8dsv4" path="res://assets/assets_block_3.png" id="5_dm40k"]
+[ext_resource type="AudioStream" uid="uid://ifa87c75imol" path="res://assets/boot-dragon-studio-simple-whoosh-382724.mp3" id="6_dm40k"]
+[ext_resource type="Script" uid="uid://ovdwpx84pqr7" path="res://sfx_player.gd" id="6_xf3if"]
+
+[sub_resource type="Animation" id="Animation_n76rq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.53588974175501]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_t5imi"]
+resource_name = "kick"
+length = 2.3000000000000003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.46666664, 0.69682825, 0.73333335, 1.0351713, 1.0666666, 1.4303172, 1.4666667, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.53588974175501, -1.0026999, -1.0026999, -0.7941248096574199, -0.7941248096574199, -0.5759586531581288, -0.5759586531581288, -0.20943951023931956, 1.53588974175501]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_segco"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.38377118, 1.53588974175501]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_segco"]
+_data = {
+&"RESET": SubResource("Animation_n76rq"),
+&"kick": SubResource("Animation_t5imi"),
+&"start": SubResource("Animation_segco")
+}
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xsnk2"]
+friction = 0.0
+bounce = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6ct6"]
+size = Vector2(83.054146, 21.826645)
+
+[node name="Boot" type="Node2D" unique_id=1613820414]
+script = ExtResource("1_t5imi")
+
+[node name="Foot" type="Node2D" parent="." unique_id=526805939]
+position = Vector2(-6.592137e-08, -196.69565)
+rotation = 1.5358897
+scale = Vector2(0.6612413, 0.6612413)
+
+[node name="AssetsBoot" type="Sprite2D" parent="Foot" unique_id=900523839]
+position = Vector2(43.11249, 192.4411)
+scale = Vector2(1.6486495, 1.6486497)
+texture = ExtResource("2_m6jb1")
+
+[node name="AssetsFakeFloor1" type="Sprite2D" parent="Foot" unique_id=1123652438]
+position = Vector2(0.3716593, 56.238434)
+rotation = 1.5707964
+scale = Vector2(0.70497185, 0.70497185)
+texture = ExtResource("3_xf3if")
+
+[node name="DeathArea" type="Area2D" parent="Foot" unique_id=2055073567]
+position = Vector2(87.5, 241.45915)
+collision_mask = 2
+script = ExtResource("3_t5imi")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Foot/DeathArea" unique_id=988492575]
+polygon = PackedVector2Array(-101.11077, 25.758957, -102.62308, -113.37333, -33.056942, -113.37333, -31.544632, -34.733337, 1.7261276, -25.659492, 16.849205, 0.049728394, 18.361511, 25.758957)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Foot" unique_id=1993600542]
+position = Vector2(-6.9666367, 241.87338)
+rotation = -3.1415927
+remote_path = NodePath("../../AnimatableBody2D")
+update_scale = false
+
+[node name="AssetsBlock3" type="Sprite2D" parent="." unique_id=1311927131]
+position = Vector2(-6.592137e-08, -196.69565)
+scale = Vector2(0.66124135, 0.66124135)
+texture = ExtResource("5_dm40k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=242585354]
+libraries/ = SubResource("AnimationLibrary_segco")
+autoplay = &"start"
+
+[node name="Timer" type="Timer" parent="." unique_id=774883990]
+wait_time = 4.0
+autostart = true
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=1355199954]
+position = Vector2(-160, -195.71776)
+rotation = -1.605703
+scale = Vector2(0.9999935, 0.9999935)
+disable_mode = 1
+collision_layer = 4
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_xsnk2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=2039574525]
+position = Vector2(-35.702026, -8.6723)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_h6ct6")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=568998330]
+stream = ExtResource("6_dm40k")
+script = ExtResource("6_xf3if")
