@@ -1,9 +1,10 @@
 extends Node
 
-signal next_scene(node: Node)
+signal next_scene(scene_path: String)
+signal reload
 
 func load_next(scene_path: String):
-	var scene = load(scene_path)
-	if scene != null:
-		var node = scene.instantiate()
-		next_scene.emit(node)
+	next_scene.emit(scene_path)
+
+func reload_current_scene():
+	reload.emit()

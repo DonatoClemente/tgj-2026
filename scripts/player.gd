@@ -152,10 +152,9 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 func die():
-	current_state = states.DEAD
-	$AnimatedSprite2D.play("die")
-	await $AnimatedSprite2D.animation_finished
-	velocity = Vector2.ZERO
-	set_global_position(spawn_pos)
-	$AnimatedSprite2D.play("default")
-	current_state = states.IDLE
+	if not current_state == states.DEAD:
+		current_state = states.DEAD
+		$AnimatedSprite2D.play("die")
+		await $AnimatedSprite2D.animation_finished
+		velocity = Vector2.ZERO
+		Data.player_dead()

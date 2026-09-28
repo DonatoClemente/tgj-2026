@@ -19,6 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://b4q4t4d1tf04v" path="res://spikes.tscn" id="14_rapvx"]
 [ext_resource type="PackedScene" uid="uid://du5ja6rd4y12b" path="res://collectible.tscn" id="16_rapvx"]
 [ext_resource type="PackedScene" uid="uid://crklwtgctcisv" path="res://false_floor_1.tscn" id="17_rapvx"]
+[ext_resource type="PackedScene" uid="uid://buc342t2f0son" path="res://pause_menu.tscn" id="20_hiwaj"]
+[ext_resource type="PackedScene" uid="uid://pw1mdu240486" path="res://game_over.tscn" id="21_0xm52"]
+[ext_resource type="PackedScene" uid="uid://dbx1owuicn81r" path="res://exit_area.tscn" id="22_pflst"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43fxs"]
 size = Vector2(1467, 48)
@@ -409,3 +412,13 @@ z_index = 1
 position = Vector2(960, 540)
 texture = ExtResource("2_l6eyr")
 metadata/_edit_lock_ = true
+
+[node name="PauseMenu" parent="." unique_id=1445205057 instance=ExtResource("20_hiwaj")]
+visible = false
+
+[node name="GameOver" parent="." unique_id=764692852 instance=ExtResource("21_0xm52")]
+visible = false
+
+[node name="ExitArea" parent="." unique_id=1275044037 instance=ExtResource("22_pflst")]
+position = Vector2(139, 891)
+next_scene = "uid://dkb8air2ureor"

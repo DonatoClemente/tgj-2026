@@ -1,15 +1,11 @@
 [gd_scene format=3 uid="uid://ct2a07lbhf030"]
 
 [ext_resource type="Script" uid="uid://n1773nsqussi" path="res://scripts/main_scene.gd" id="1_80nbo"]
-[ext_resource type="PackedScene" uid="uid://camg5ltjsost2" path="res://main_menu.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://cxfma27nxkr2c" path="res://splash.tscn" id="2_e2o6t"]
 
 [node name="Game" type="Node" unique_id=541384454]
 
 [node name="MainScene" type="Node" parent="." unique_id=706220864]
 script = ExtResource("1_80nbo")
 
-[node name="MainMenu" parent="MainScene" unique_id=1211521045 instance=ExtResource("2_e2o6t")]
-
-[node name="Audio" type="Node" parent="." unique_id=203845237]
-
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="Audio" unique_id=388948302]
+[node name="Splash" parent="MainScene" unique_id=180382015 instance=ExtResource("2_e2o6t")]

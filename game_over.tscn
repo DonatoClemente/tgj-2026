@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://pw1mdu240486"]
+
+[ext_resource type="Script" uid="uid://byif8nix7fisv" path="res://game_over.gd" id="1_ftari"]
+[ext_resource type="Texture2D" uid="uid://g4eb4jxmnb8w" path="res://assets/game_over_1.png" id="1_y26ei"]
+[ext_resource type="Texture2D" uid="uid://hh6a6sdedxf" path="res://assets/retry_still.png" id="2_8u835"]
+[ext_resource type="Texture2D" uid="uid://cppew6ywmpoiq" path="res://assets/btt_still.png" id="3_dd2jf"]
+[ext_resource type="Texture2D" uid="uid://c33xsc3eowf0" path="res://assets/retry_click.png" id="3_ftari"]
+[ext_resource type="Texture2D" uid="uid://cjbicy0qjts6k" path="res://assets/retry_hover.png" id="4_28vn7"]
+[ext_resource type="Texture2D" uid="uid://c52fkhan7oh26" path="res://assets/btt_click.png" id="4_ku74v"]
+[ext_resource type="Texture2D" uid="uid://b87ilcglosb17" path="res://assets/btt_hover.png" id="5_nm4t2"]
+[ext_resource type="Texture2D" uid="uid://bc7ti4eni74ax" path="res://assets/quit_still.png" id="9_745m4"]
+[ext_resource type="Texture2D" uid="uid://bydobuja16pm4" path="res://assets/quit_click.png" id="10_kjrwi"]
+[ext_resource type="Texture2D" uid="uid://dt736ge046ufp" path="res://assets/quit_hover.png" id="11_olga5"]
+[ext_resource type="AudioStream" uid="uid://b3isx333nj80m" path="res://assets/Death Sounds Take 2.wav" id="12_nm4t2"]
+[ext_resource type="Script" uid="uid://ctb6dmgo2y34d" path="res://music_player.gd" id="13_745m4"]
+[ext_resource type="AudioStream" uid="uid://c0gm217ad4svp" path="res://assets/click-dragon-studio-button-press-382713.mp3" id="14_kjrwi"]
+[ext_resource type="Script" uid="uid://ovdwpx84pqr7" path="res://sfx_player.gd" id="15_olga5"]
+
+[node name="GameOver" type="CanvasLayer" unique_id=764692852]
+layer = 3
+script = ExtResource("1_ftari")
+main_menu = "uid://camg5ltjsost2"
+
+[node name="Control" type="Control" parent="." unique_id=103071161]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=660054459]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_y26ei")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=2142765643]
+custom_maximum_size = Vector2(1500, -1)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = -160.0
+offset_right = -60.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="BackButton" type="TextureButton" parent="Control/HBoxContainer" unique_id=162959292]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(370, 100)
+layout_mode = 2
+texture_normal = ExtResource("3_dd2jf")
+texture_pressed = ExtResource("4_ku74v")
+texture_hover = ExtResource("5_nm4t2")
+texture_focused = ExtResource("5_nm4t2")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Spacer" type="Control" parent="Control/HBoxContainer" unique_id=1540930961]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RetryButton" type="TextureButton" parent="Control/HBoxContainer" unique_id=626338079]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(370, 100)
+layout_mode = 2
+texture_normal = ExtResource("2_8u835")
+texture_pressed = ExtResource("3_ftari")
+texture_hover = ExtResource("4_28vn7")
+texture_focused = ExtResource("4_28vn7")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Spacer2" type="Control" parent="Control/HBoxContainer" unique_id=688823602]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="QuitButton" type="TextureButton" parent="Control/HBoxContainer" unique_id=1356610702]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(370, 100)
+layout_mode = 2
+texture_normal = ExtResource("9_745m4")
+texture_pressed = ExtResource("10_kjrwi")
+texture_hover = ExtResource("11_olga5")
+texture_focused = ExtResource("11_olga5")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1090245791]
+stream = ExtResource("12_nm4t2")
+script = ExtResource("13_745m4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=895935555]
+stream = ExtResource("14_kjrwi")
+script = ExtResource("15_olga5")

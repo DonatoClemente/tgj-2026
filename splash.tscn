@@ -1,108 +1,134 @@
 [gd_scene format=3 uid="uid://cxfma27nxkr2c"]
 
 [ext_resource type="Script" uid="uid://bf6js7ara25ur" path="res://scripts/splash.gd" id="1_b04ml"]
+[ext_resource type="Texture2D" uid="uid://d3vpyqd2d85pm" path="res://assets/levelone_background_1.png" id="2_tbd5x"]
+[ext_resource type="AudioStream" uid="uid://c8a5gs45ipbpw" path="res://assets/Opening Diolauge.wav" id="2_xoh7v"]
+[ext_resource type="Texture2D" uid="uid://brgb22qpmhvqd" path="res://assets/player_sprite_sheet.png" id="3_tbd5x"]
+[ext_resource type="Script" uid="uid://ctb6dmgo2y34d" path="res://music_player.gd" id="3_wyt6d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h153m"]
+atlas = ExtResource("3_tbd5x")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxq7p"]
+atlas = ExtResource("3_tbd5x")
+region = Rect2(200, 100, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_43fxs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h153m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxq7p")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_85yrb"]
-length = 0.001
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/TGJ26Splash:visible")
+tracks/0/path = NodePath("Control/ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/TGJ26Splash:modulate")
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"update": 1,
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/BlackBG:visible")
+tracks/2/path = NodePath("Camera2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(1406, 443)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/BlackBG:modulate")
+tracks/3/path = NodePath("Camera2D:zoom")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(3, 3)]
 }
 
 [sub_resource type="Animation" id="Animation_pj2qt"]
 resource_name = "splash"
-length = 3.5000000000000004
+length = 17.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/TGJ26Splash:visible")
+tracks/0/path = NodePath("Control/ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
+"times": PackedFloat32Array(0.8333333, 4.5666666, 14.1333065, 17),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/TGJ26Splash:modulate")
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 2.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"times": PackedFloat32Array(0.83333325),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/BlackBG:visible")
+tracks/2/path = NodePath("Camera2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 3.5),
+"times": PackedFloat32Array(0.7, 14.922667),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
+"update": 0,
+"values": [Vector2(1354, 542), Vector2(960, 540)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/BlackBG:modulate")
+tracks/3/path = NodePath("Camera2D:zoom")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 3, 3.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.71418303, 14.922667),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Vector2(1.8, 1.8), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_46rw8"]
@@ -112,12 +138,38 @@ _data = {
 }
 
 [node name="Splash" type="Node2D" unique_id=180382015]
+z_index = 1
 script = ExtResource("1_b04ml")
+main_menu = "uid://camg5ltjsost2"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=981770780]
+[node name="Control" type="Control" parent="." unique_id=1569878466]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="BlackBG" type="ColorRect" parent="CanvasLayer" unique_id=1065640357]
-visible = false
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=2079581225]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tbd5x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control" unique_id=1631167415]
+position = Vector2(142, 961)
+scale = Vector2(2.0726163, 2.0726163)
+sprite_frames = SubResource("SpriteFrames_43fxs")
+autoplay = "default"
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1729052400]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -125,30 +177,13 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="TGJ26Splash" type="ColorRect" parent="CanvasLayer" unique_id=477278418]
-visible = false
-modulate = Color(1, 1, 1, 0)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.64715713, 0.40506354, 4.813075e-07, 1)
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/TGJ26Splash" unique_id=1239850310]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/TGJ26Splash/CenterContainer" unique_id=585100761]
-layout_mode = 2
-theme_override_font_sizes/font_size = 52
-text = "Made for 
-Texas Game Jam 2026"
-horizontal_alignment = 1
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2013280697]
+position = Vector2(1406, 443)
+zoom = Vector2(3, 3)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1524353453]
 libraries/ = SubResource("AnimationLibrary_46rw8")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1951726596]
+stream = ExtResource("2_xoh7v")
+script = ExtResource("3_wyt6d")

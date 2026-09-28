@@ -2,14 +2,24 @@
 
 [ext_resource type="Script" uid="uid://t85rxplu0e6w" path="res://scripts/main_menu.gd" id="1_fu7sn"]
 [ext_resource type="PackedScene" uid="uid://b6g6rniumj388" path="res://music_player.tscn" id="2_nlkkf"]
-[ext_resource type="PackedScene" uid="uid://cxfma27nxkr2c" path="res://splash.tscn" id="3_jix8l"]
 [ext_resource type="AudioStream" uid="uid://8e1xxf1hvdca" path="res://assets/Title Screen Hampter.wav" id="3_nlkkf"]
+[ext_resource type="Texture2D" uid="uid://di1m40hei8w4m" path="res://assets/title_screen_2.png" id="4_g8g3n"]
 [ext_resource type="PackedScene" uid="uid://dpxb344jmstwp" path="res://settings.tscn" id="4_jix8l"]
-[ext_resource type="Texture2D" uid="uid://cnv0tc6fo8dw2" path="res://assets/title_screen_1.png" id="4_nlkkf"]
+[ext_resource type="Texture2D" uid="uid://ojeequrno283" path="res://assets/start_still.png" id="5_cm266"]
+[ext_resource type="Texture2D" uid="uid://3firx2af4bds" path="res://assets/start_click.png" id="6_g8g3n"]
+[ext_resource type="Texture2D" uid="uid://nlet87duflw6" path="res://assets/start_hover.png" id="7_8u0te"]
+[ext_resource type="Texture2D" uid="uid://5dfxa0bg5h0s" path="res://assets/setting_still.png" id="8_oiatc"]
+[ext_resource type="Texture2D" uid="uid://d0pxdavw0kr8w" path="res://assets/setting_click.png" id="9_mg3m2"]
+[ext_resource type="Texture2D" uid="uid://n75i24evvvql" path="res://assets/setting_hover.png" id="10_ojb7r"]
+[ext_resource type="Texture2D" uid="uid://bc7ti4eni74ax" path="res://assets/quit_still.png" id="11_e5qqf"]
+[ext_resource type="Texture2D" uid="uid://bydobuja16pm4" path="res://assets/quit_click.png" id="12_7bbuq"]
+[ext_resource type="Texture2D" uid="uid://dt736ge046ufp" path="res://assets/quit_hover.png" id="13_saq78"]
+[ext_resource type="AudioStream" uid="uid://c0gm217ad4svp" path="res://assets/click-dragon-studio-button-press-382713.mp3" id="15_g8g3n"]
+[ext_resource type="Script" uid="uid://ovdwpx84pqr7" path="res://sfx_player.gd" id="16_8u0te"]
 
 [node name="MainMenu" type="Node2D" unique_id=1211521045]
 script = ExtResource("1_fu7sn")
-next_scene = "uid://bm8euqh6w7drq"
+next_scene = "uid://yqcvh7fvy1c6"
 
 [node name="MusicPlayer" parent="." unique_id=69702498 instance=ExtResource("2_nlkkf")]
 stream = ExtResource("3_nlkkf")
@@ -17,65 +27,63 @@ autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=156866968]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=335870409]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.5883615, 0.4309558, 0.26256415, 1)
-
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=2127193731]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_nlkkf")
+texture = ExtResource("4_g8g3n")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1795416648]
-offset_left = 88.0
-offset_top = 80.0
-offset_right = 677.0
-offset_bottom = 811.0
-offset_transform_position = Vector2(50, 50)
-offset_transform_visual_only = false
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TextureRect" unique_id=313983286]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 114.0
+offset_top = -368.0
+offset_right = 484.0
+offset_bottom = -44.0
+grow_vertical = 0
+theme_override_constants/separation = 12
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1176953920]
-layout_mode = 2
-theme_override_font_sizes/font_size = 105
-
-[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer" unique_id=1206871269]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=1040104703]
-layout_mode = 2
-offset_transform_position = Vector2(0, 100)
-offset_transform_visual_only = false
-theme_override_constants/separation = 29
-
-[node name="StartButton" type="Button" parent="CanvasLayer/VBoxContainer/VBoxContainer" unique_id=2117881405]
+[node name="StartButton" type="TextureButton" parent="CanvasLayer/TextureRect/VBoxContainer" unique_id=1847910777]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(370, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 72
-text = "Start"
+texture_normal = ExtResource("5_cm266")
+texture_pressed = ExtResource("6_g8g3n")
+texture_hover = ExtResource("7_8u0te")
+texture_focused = ExtResource("7_8u0te")
+ignore_texture_size = true
+stretch_mode = 4
 
-[node name="SettingsButton" type="Button" parent="CanvasLayer/VBoxContainer/VBoxContainer" unique_id=1514032305]
+[node name="SettingsButton" type="TextureButton" parent="CanvasLayer/TextureRect/VBoxContainer" unique_id=530749362]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(370, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 72
-text = "Settings"
+texture_normal = ExtResource("8_oiatc")
+texture_pressed = ExtResource("9_mg3m2")
+texture_hover = ExtResource("10_ojb7r")
+texture_focused = ExtResource("10_ojb7r")
+ignore_texture_size = true
+stretch_mode = 4
 
-[node name="QuitButton" type="Button" parent="CanvasLayer/VBoxContainer/VBoxContainer" unique_id=1348411739]
+[node name="QuitButton" type="TextureButton" parent="CanvasLayer/TextureRect/VBoxContainer" unique_id=1716976304]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(370, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 72
-text = "Quit"
-
-[node name="Splash" parent="." unique_id=180382015 instance=ExtResource("3_jix8l")]
-unique_name_in_owner = true
+texture_normal = ExtResource("11_e5qqf")
+texture_pressed = ExtResource("12_7bbuq")
+texture_hover = ExtResource("13_saq78")
+texture_focused = ExtResource("13_saq78")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="Settings" parent="." unique_id=762988763 instance=ExtResource("4_jix8l")]
 unique_name_in_owner = true
 visible = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1307821869]
+stream = ExtResource("15_g8g3n")
+script = ExtResource("16_8u0te")

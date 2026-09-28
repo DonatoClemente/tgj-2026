@@ -2,8 +2,13 @@ extends Node
 
 #signal finished
 
+signal died
+
 # Defines if this is the first time the main menu has loaded this runtime
-var first_load = false
+var first_load = true
+
+func player_dead():
+	died.emit()
 
 ## Saves data variables to file
 #func save():

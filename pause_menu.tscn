@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://buc342t2f0son"]
+
+[ext_resource type="PackedScene" uid="uid://dpxb344jmstwp" path="res://settings.tscn" id="1_hdmo1"]
+[ext_resource type="Script" uid="uid://jr4ani6gq4ly" path="res://pause_menu.gd" id="1_nwcfo"]
+[ext_resource type="Texture2D" uid="uid://hh6a6sdedxf" path="res://assets/retry_still.png" id="2_42xcf"]
+[ext_resource type="Texture2D" uid="uid://c33xsc3eowf0" path="res://assets/retry_click.png" id="3_1meuf"]
+[ext_resource type="Script" uid="uid://ovdwpx84pqr7" path="res://sfx_player.gd" id="3_2nc7s"]
+[ext_resource type="Texture2D" uid="uid://cjbicy0qjts6k" path="res://assets/retry_hover.png" id="4_0q2ao"]
+[ext_resource type="Texture2D" uid="uid://cppew6ywmpoiq" path="res://assets/btt_still.png" id="5_oasv2"]
+[ext_resource type="Texture2D" uid="uid://c52fkhan7oh26" path="res://assets/btt_click.png" id="6_udgxo"]
+[ext_resource type="Texture2D" uid="uid://b87ilcglosb17" path="res://assets/btt_hover.png" id="7_fijrc"]
+[ext_resource type="Texture2D" uid="uid://5dfxa0bg5h0s" path="res://assets/setting_still.png" id="8_7qvy3"]
+[ext_resource type="Texture2D" uid="uid://d0pxdavw0kr8w" path="res://assets/setting_click.png" id="9_gxrhd"]
+[ext_resource type="Texture2D" uid="uid://n75i24evvvql" path="res://assets/setting_hover.png" id="10_y0te6"]
+[ext_resource type="Texture2D" uid="uid://b4opgotr4tnpf" path="res://assets/x.png" id="11_lv42l"]
+[ext_resource type="Texture2D" uid="uid://nayq4iku67aw" path="res://assets/x_hover.png" id="12_ub45p"]
+[ext_resource type="AudioStream" uid="uid://c0gm217ad4svp" path="res://assets/click-dragon-studio-button-press-382713.mp3" id="14_1meuf"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1445205057]
+layer = 2
+script = ExtResource("1_nwcfo")
+main_menu_scene = "uid://camg5ltjsost2"
+
+[node name="Control" type="Control" parent="." unique_id=99609065]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1375105647]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7529412)
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/ColorRect" unique_id=1040833422]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control/ColorRect/CenterContainer" unique_id=127245713]
+custom_minimum_size = Vector2(500, 600)
+layout_mode = 2
+color = Color(0.49411765, 0.06666667, 0.3019608, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ColorRect/CenterContainer/ColorRect" unique_id=1503854761]
+custom_maximum_size = Vector2(450, 500)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="RetryButton" type="TextureButton" parent="Control/ColorRect/CenterContainer/ColorRect/VBoxContainer" unique_id=1005050567]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+texture_normal = ExtResource("2_42xcf")
+texture_pressed = ExtResource("3_1meuf")
+texture_hover = ExtResource("4_0q2ao")
+texture_focused = ExtResource("4_0q2ao")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="SettingsButton" type="TextureButton" parent="Control/ColorRect/CenterContainer/ColorRect/VBoxContainer" unique_id=1645371235]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+texture_normal = ExtResource("8_7qvy3")
+texture_pressed = ExtResource("9_gxrhd")
+texture_hover = ExtResource("10_y0te6")
+texture_focused = ExtResource("10_y0te6")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MenuButton" type="TextureButton" parent="Control/ColorRect/CenterContainer/ColorRect/VBoxContainer" unique_id=511502567]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+texture_normal = ExtResource("5_oasv2")
+texture_pressed = ExtResource("6_udgxo")
+texture_hover = ExtResource("7_fijrc")
+texture_focused = ExtResource("7_fijrc")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="Control/ColorRect/CenterContainer/ColorRect/VBoxContainer" unique_id=2101390309]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CloseButton" type="TextureButton" parent="Control/ColorRect/CenterContainer/ColorRect/VBoxContainer" unique_id=1612299324]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+offset_transform_position = Vector2(0, 46.94)
+offset_transform_visual_only = false
+texture_normal = ExtResource("11_lv42l")
+texture_hover = ExtResource("12_ub45p")
+texture_focused = ExtResource("12_ub45p")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Settings" parent="." unique_id=977366183 instance=ExtResource("1_hdmo1")]
+visible = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1674560452]
+stream = ExtResource("14_1meuf")
+script = ExtResource("3_2nc7s")
